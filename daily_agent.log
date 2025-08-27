@@ -1,0 +1,119 @@
+2025-08-27 15:12:19,134 - services.gemini_service - INFO - Gemini Service 초기화 완료
+2025-08-27 15:12:19,135 - services.notification_service - INFO - 이메일 알림 서비스가 활성화되었습니다.
+2025-08-27 15:12:19,809 - services.notification_service - INFO - 텔레그램 알림 서비스가 활성화되었습니다.
+2025-08-27 15:12:19,809 - main - INFO - Daily AI Agent 초기화 완료
+2025-08-27 15:12:19,809 - main - INFO - 일일 보고서 생성 시작
+2025-08-27 15:15:23,202 - services.gemini_service - INFO - Gemini Service 초기화 완료
+2025-08-27 15:15:23,202 - services.notification_service - INFO - 이메일 알림 서비스가 활성화되었습니다.
+2025-08-27 15:15:23,867 - services.notification_service - INFO - 텔레그램 알림 서비스가 활성화되었습니다.
+2025-08-27 15:15:23,867 - main - INFO - Daily AI Agent 초기화 완료
+2025-08-27 15:15:24,478 - services.gemini_service - INFO - Gemini AI로 텍스트 생성 시작
+2025-08-27 15:15:30,324 - services.gemini_service - INFO - 텍스트 생성 완료
+2025-08-27 15:15:31,357 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8483769264:AAFVAcTKeTm3e57L-JcrRddr6xjoCpZQJ2A/sendMessage "HTTP/1.1 200 OK"
+2025-08-27 15:15:31,358 - services.notification_service - INFO - 텔레그램 전송 완료: 8210057567
+2025-08-27 15:17:40,180 - services.gemini_service - INFO - Gemini Service 초기화 완료
+2025-08-27 15:17:40,180 - services.notification_service - INFO - 이메일 알림 서비스가 활성화되었습니다.
+2025-08-27 15:17:40,840 - services.notification_service - INFO - 텔레그램 알림 서비스가 활성화되었습니다.
+2025-08-27 15:17:40,841 - main - INFO - Daily AI Agent 초기화 완료
+2025-08-27 15:17:42,221 - services.stock_service - ERROR - KOSPI 히스토리 데이터가 없습니다.
+2025-08-27 15:17:42,938 - services.stock_service - ERROR - KOSPI 히스토리 데이터가 없습니다.
+2025-08-27 15:17:43,680 - services.stock_service - ERROR - KOSPI 히스토리 데이터가 없습니다.
+2025-08-27 15:17:43,681 - services.stock_service - ERROR - KOSPI 모든 티커 시도 실패
+2025-08-27 15:17:43,681 - services.stock_service - WARNING - KOSPI 실제 데이터 수집 실패, 더미 데이터 사용
+2025-08-27 15:17:43,681 - services.stock_service - INFO - KOSPI 더미 데이터 생성: 2613.79 (+0.53%)
+2025-08-27 15:17:44,375 - services.stock_service - ERROR - KOSDAQ 히스토리 데이터가 없습니다.
+2025-08-27 15:17:45,101 - services.stock_service - ERROR - KOSDAQ 히스토리 데이터가 없습니다.
+2025-08-27 15:17:45,813 - services.stock_service - ERROR - KOSDAQ 히스토리 데이터가 없습니다.
+2025-08-27 15:17:45,813 - services.stock_service - ERROR - KOSDAQ 모든 티커 시도 실패
+2025-08-27 15:17:45,813 - services.stock_service - WARNING - KOSDAQ 실제 데이터 수집 실패, 더미 데이터 사용
+2025-08-27 15:17:45,813 - services.stock_service - INFO - KOSDAQ 더미 데이터 생성: 837.41 (-1.48%)
+2025-08-27 15:17:46,605 - services.stock_service - ERROR - S&P 500 히스토리 데이터가 없습니다.
+2025-08-27 15:17:47,307 - services.stock_service - ERROR - S&P 500 히스토리 데이터가 없습니다.
+2025-08-27 15:17:47,307 - services.stock_service - ERROR - S&P 500 모든 티커 시도 실패
+2025-08-27 15:17:47,307 - services.stock_service - WARNING - S&P 500 실제 데이터 수집 실패, 더미 데이터 사용
+2025-08-27 15:17:47,307 - services.stock_service - INFO - S&P 500 더미 데이터 생성: 4243.08 (+1.03%)
+2025-08-27 15:17:48,098 - services.stock_service - ERROR - NASDAQ 히스토리 데이터가 없습니다.
+2025-08-27 15:17:48,816 - services.stock_service - ERROR - NASDAQ 히스토리 데이터가 없습니다.
+2025-08-27 15:17:48,817 - services.stock_service - ERROR - NASDAQ 모든 티커 시도 실패
+2025-08-27 15:17:48,817 - services.stock_service - WARNING - NASDAQ 실제 데이터 수집 실패, 더미 데이터 사용
+2025-08-27 15:17:48,817 - services.stock_service - INFO - NASDAQ 더미 데이터 생성: 13175.10 (+1.35%)
+2025-08-27 15:17:49,574 - services.stock_service - ERROR - Dow Jones 히스토리 데이터가 없습니다.
+2025-08-27 15:17:50,258 - services.stock_service - ERROR - Dow Jones 히스토리 데이터가 없습니다.
+2025-08-27 15:17:50,258 - services.stock_service - ERROR - Dow Jones 모든 티커 시도 실패
+2025-08-27 15:17:50,258 - services.stock_service - WARNING - Dow Jones 실제 데이터 수집 실패, 더미 데이터 사용
+2025-08-27 15:17:50,258 - services.stock_service - INFO - Dow Jones 더미 데이터 생성: 33501.57 (-1.47%)
+2025-08-27 15:17:50,259 - services.gemini_service - INFO - Gemini AI로 텍스트 생성 시작
+2025-08-27 15:28:43,382 - services.gemini_service - INFO - Gemini Service 초기화 완료
+2025-08-27 15:28:43,382 - services.notification_service - INFO - 이메일 알림 서비스가 활성화되었습니다.
+2025-08-27 15:28:44,055 - services.notification_service - INFO - 텔레그램 알림 서비스가 활성화되었습니다.
+2025-08-27 15:28:44,055 - main - INFO - Daily AI Agent 초기화 완료
+2025-08-27 15:28:44,055 - main - INFO - 일일 보고서 생성 시작
+2025-08-27 15:28:45,412 - services.stock_service - ERROR - KOSPI 히스토리 데이터가 없습니다.
+2025-08-27 15:28:46,109 - services.stock_service - ERROR - KOSPI 히스토리 데이터가 없습니다.
+2025-08-27 15:28:46,919 - services.stock_service - ERROR - KOSPI 히스토리 데이터가 없습니다.
+2025-08-27 15:28:46,919 - services.stock_service - ERROR - KOSPI 모든 실제 API 시도 실패
+2025-08-27 15:28:46,919 - services.stock_service - ERROR - KOSPI 실제 데이터 수집 완전 실패
+2025-08-27 15:28:47,617 - services.stock_service - ERROR - KOSDAQ 히스토리 데이터가 없습니다.
+2025-08-27 15:28:48,331 - services.stock_service - ERROR - KOSDAQ 히스토리 데이터가 없습니다.
+2025-08-27 15:28:49,033 - services.stock_service - ERROR - KOSDAQ 히스토리 데이터가 없습니다.
+2025-08-27 15:28:49,033 - services.stock_service - ERROR - KOSDAQ 모든 실제 API 시도 실패
+2025-08-27 15:28:49,033 - services.stock_service - ERROR - KOSDAQ 실제 데이터 수집 완전 실패
+2025-08-27 15:28:49,794 - services.stock_service - ERROR - S&P 500 히스토리 데이터가 없습니다.
+2025-08-27 15:28:50,470 - services.stock_service - ERROR - S&P 500 히스토리 데이터가 없습니다.
+2025-08-27 15:28:50,471 - services.stock_service - INFO - S&P 500 Alpha Vantage API로 시도
+2025-08-27 15:28:51,479 - services.stock_service - INFO - S&P 500 Alpha Vantage 데이터 수집 성공: 645.16
+2025-08-27 15:28:52,177 - services.stock_service - ERROR - NASDAQ 히스토리 데이터가 없습니다.
+2025-08-27 15:28:52,897 - services.stock_service - ERROR - NASDAQ 히스토리 데이터가 없습니다.
+2025-08-27 15:28:52,897 - services.stock_service - INFO - NASDAQ Alpha Vantage API로 시도
+2025-08-27 15:28:53,948 - services.stock_service - INFO - NASDAQ Alpha Vantage 데이터 수집 성공: 572.61
+2025-08-27 15:28:54,598 - services.stock_service - ERROR - Dow Jones 히스토리 데이터가 없습니다.
+2025-08-27 15:28:55,300 - services.stock_service - ERROR - Dow Jones 히스토리 데이터가 없습니다.
+2025-08-27 15:28:55,301 - services.stock_service - INFO - Dow Jones Alpha Vantage API로 시도
+2025-08-27 15:28:56,355 - services.stock_service - INFO - Dow Jones Alpha Vantage 데이터 수집 성공: 454.49
+2025-08-27 15:28:56,357 - services.gemini_service - INFO - Gemini AI로 텍스트 생성 시작
+2025-08-27 15:29:02,886 - services.gemini_service - INFO - 텍스트 생성 완료
+2025-08-27 15:29:02,888 - main - INFO - 보고서 저장 완료: reports/daily_report_20250827_152902.txt
+2025-08-27 15:29:02,890 - services.notification_service - INFO - 콘솔 출력 완료
+2025-08-27 15:29:05,795 - services.notification_service - ERROR - 이메일 전송 중 오류: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-770536cd341sm9800515b3a.72 - gsmtp')
+2025-08-27 15:29:06,904 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8483769264:AAFVAcTKeTm3e57L-JcrRddr6xjoCpZQJ2A/sendMessage "HTTP/1.1 200 OK"
+2025-08-27 15:29:06,905 - services.notification_service - INFO - 텔레그램 전송 완료: 8210057567
+2025-08-27 15:29:06,905 - main - INFO - 일일 보고서 생성 및 전송 완료
+2025-08-27 15:33:02,830 - services.gemini_service - INFO - Gemini Service 초기화 완료
+2025-08-27 15:33:02,830 - services.notification_service - INFO - 이메일 알림 서비스가 활성화되었습니다.
+2025-08-27 15:33:03,527 - services.notification_service - INFO - 텔레그램 알림 서비스가 활성화되었습니다.
+2025-08-27 15:33:03,527 - main - INFO - Daily AI Agent 초기화 완료
+2025-08-27 15:33:03,527 - main - INFO - 일일 보고서 생성 시작
+2025-08-27 15:33:04,822 - services.stock_service - ERROR - KOSPI 히스토리 데이터가 없습니다.
+2025-08-27 15:33:05,505 - services.stock_service - ERROR - KOSPI 히스토리 데이터가 없습니다.
+2025-08-27 15:33:06,214 - services.stock_service - ERROR - KOSPI 히스토리 데이터가 없습니다.
+2025-08-27 15:33:06,214 - services.stock_service - INFO - KOSPI 네이버 금융 스크래핑으로 시도
+2025-08-27 15:33:06,754 - services.stock_service - ERROR - 네이버에서 KOSPI 현재가를 찾을 수 없습니다.
+2025-08-27 15:33:06,755 - services.stock_service - ERROR - KOSPI 모든 실제 API 시도 실패
+2025-08-27 15:33:06,755 - services.stock_service - ERROR - KOSPI 실제 데이터 수집 완전 실패
+2025-08-27 15:33:07,434 - services.stock_service - ERROR - KOSDAQ 히스토리 데이터가 없습니다.
+2025-08-27 15:33:08,106 - services.stock_service - ERROR - KOSDAQ 히스토리 데이터가 없습니다.
+2025-08-27 15:33:08,796 - services.stock_service - ERROR - KOSDAQ 히스토리 데이터가 없습니다.
+2025-08-27 15:33:08,796 - services.stock_service - INFO - KOSDAQ 네이버 금융 스크래핑으로 시도
+2025-08-27 15:33:09,252 - services.stock_service - ERROR - 네이버에서 KOSDAQ 현재가를 찾을 수 없습니다.
+2025-08-27 15:33:09,254 - services.stock_service - ERROR - KOSDAQ 모든 실제 API 시도 실패
+2025-08-27 15:33:09,254 - services.stock_service - ERROR - KOSDAQ 실제 데이터 수집 완전 실패
+2025-08-27 15:33:09,955 - services.stock_service - ERROR - S&P 500 히스토리 데이터가 없습니다.
+2025-08-27 15:33:10,657 - services.stock_service - ERROR - S&P 500 히스토리 데이터가 없습니다.
+2025-08-27 15:33:10,657 - services.stock_service - INFO - S&P 500 Alpha Vantage API로 시도
+2025-08-27 15:33:11,675 - services.stock_service - INFO - S&P 500 Alpha Vantage 데이터 수집 성공: 645.16
+2025-08-27 15:33:12,358 - services.stock_service - ERROR - NASDAQ 히스토리 데이터가 없습니다.
+2025-08-27 15:33:13,108 - services.stock_service - ERROR - NASDAQ 히스토리 데이터가 없습니다.
+2025-08-27 15:33:13,108 - services.stock_service - INFO - NASDAQ Alpha Vantage API로 시도
+2025-08-27 15:33:14,121 - services.stock_service - INFO - NASDAQ Alpha Vantage 데이터 수집 성공: 572.61
+2025-08-27 15:33:14,811 - services.stock_service - ERROR - Dow Jones 히스토리 데이터가 없습니다.
+2025-08-27 15:33:15,650 - services.stock_service - ERROR - Dow Jones 히스토리 데이터가 없습니다.
+2025-08-27 15:33:15,650 - services.stock_service - INFO - Dow Jones Alpha Vantage API로 시도
+2025-08-27 15:33:16,691 - services.stock_service - INFO - Dow Jones Alpha Vantage 데이터 수집 성공: 454.49
+2025-08-27 15:33:16,693 - services.gemini_service - INFO - Gemini AI로 텍스트 생성 시작
+2025-08-27 15:33:22,731 - services.gemini_service - INFO - 텍스트 생성 완료
+2025-08-27 15:33:22,732 - main - INFO - 보고서 저장 완료: reports/daily_report_20250827_153322.txt
+2025-08-27 15:33:22,737 - services.notification_service - INFO - 콘솔 출력 완료
+2025-08-27 15:33:25,449 - services.notification_service - ERROR - 이메일 전송 중 오류: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d9443c01a7336-2489d2484efsm7768405ad.86 - gsmtp')
+2025-08-27 15:33:26,481 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8483769264:AAFVAcTKeTm3e57L-JcrRddr6xjoCpZQJ2A/sendMessage "HTTP/1.1 200 OK"
+2025-08-27 15:33:26,483 - services.notification_service - INFO - 텔레그램 전송 완료: 8210057567
+2025-08-27 15:33:26,483 - main - INFO - 일일 보고서 생성 및 전송 완료

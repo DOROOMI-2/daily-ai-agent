@@ -1,0 +1,22 @@
+# Google Gemini API Key
+GEMINI_API_KEY=AIzaSyANR1tsOEk96WWnjTXeaFJ96vyGa58_V60
+
+# OpenWeatherMap API Key (무료 날씨 API)
+OPENWEATHER_API_KEY=b5fe5efc6c0095c17054e259b916f456
+
+
+# Alpha Vantage API Key (증시 데이터)
+ALPHA_VANTAGE_API_KEY=your_alpha_vantage_api_key_here
+
+# Email settings (선택사항 - 보고서 전송용)
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASSWORD=your_app_password
+EMAIL_RECIPIENT=recipient@gmail.com
+
+# Telegram Bot settings (선택사항 - 텔레그램 알림용)
+TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
+TELEGRAM_CHAT_ID=your_telegram_chat_id_here
+
+# KIS (한국투자증권) API settings (선택사항 - 한국 증시 데이터용)
+KIS_APP_KEY=your_kis_app_key_here
+KIS_APP_SECRET=your_kis_app_secret_here
