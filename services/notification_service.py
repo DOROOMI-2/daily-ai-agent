@@ -159,7 +159,7 @@ class NotificationService:
                             self.telegram_bot.send_message(
                                 chat_id=self.telegram_chat_id,
                                 text=message,
-                                parse_mode='Markdown'
+                                parse_mode=None  # 마크다운 파싱 비활성화
                             )
                         )
                     finally:
@@ -171,13 +171,13 @@ class NotificationService:
                 loop = asyncio.new_event_loop()
                 asyncio.set_event_loop(loop)
                 try:
-                    loop.run_until_complete(
-                        self.telegram_bot.send_message(
-                            chat_id=self.telegram_chat_id,
-                            text=message,
-                            parse_mode='Markdown'
-                        )
+                                    loop.run_until_complete(
+                    self.telegram_bot.send_message(
+                        chat_id=self.telegram_chat_id,
+                        text=message,
+                        parse_mode=None  # 마크다운 파싱 비활성화
                     )
+                )
                 finally:
                     loop.close()
             

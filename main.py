@@ -17,8 +17,8 @@ from services.stock_service import StockService
 from services.gemini_service import GeminiService
 from services.notification_service import NotificationService
 
-# 환경 변수 로드
-load_dotenv()
+# 환경 변수 로드 - env_example.txt 파일 사용
+load_dotenv('env_example.txt')
 
 # 로깅 설정
 logging.basicConfig(
@@ -139,7 +139,7 @@ class DailyAIAgent:
         self.logger.info("스케줄러 시작 - 매일 오전 6시에 보고서 생성")
         
         # 즉시 테스트 실행 (선택사항)
-        # self.run_daily_report()
+        self.run_daily_report()
         
         while True:
             schedule.run_pending()

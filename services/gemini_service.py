@@ -25,7 +25,7 @@ class GeminiService:
         genai.configure(api_key=self.api_key)
         
         # 모델 설정
-        self.model_name = "gemini-2.0-flash"
+        self.model_name = "gemini-2.5-pro"
         self.model = genai.GenerativeModel(self.model_name)
         
         # 생성 설정
@@ -157,24 +157,24 @@ class GeminiService:
         formatted_parts = []
         
         # 한국 증시 (KIS API 데이터만)
-        if 'korean_markets' in stock_data and stock_data['korean_markets']:
+        if 'korean' in stock_data and stock_data['korean']:
             korean_part = "한국 증시 (KIS API):\n"
-            for data in stock_data['korean_markets']:
+            for data in stock_data['korean']:
                 change_sign = '+' if data['change'] >= 0 else ''
                 korean_part += f"- {data['name']}: {data['current_price']:,} ({change_sign}{data['change']:,}, {change_sign}{data['change_percent']:.2f}%) {data.get('trend_emoji', '')}\n"
             formatted_parts.append(korean_part.strip())
         else:
             formatted_parts.append("한국 증시: 데이터 수집 실패 (KIS API 키 확인 필요)")
         
-        # 미국 증시 (Alpha Vantage 데이터만)
-        if 'us_markets' in stock_data and stock_data['us_markets']:
-            us_part = "미국 증시 (Alpha Vantage):\n"
-            for data in stock_data['us_markets']:
+        # 미국 증시 (KIS API)
+        if 'us' in stock_data and stock_data['us']:
+            us_part = "미국 증시 (KIS API):\n"
+            for data in stock_data['us']:
                 change_sign = '+' if data['change'] >= 0 else ''
                 us_part += f"- {data['name']}: ${data['current_price']:,} ({change_sign}{data['change']:,}, {change_sign}{data['change_percent']:.2f}%) {data.get('trend_emoji', '')}\n"
             formatted_parts.append(us_part.strip())
         else:
-            formatted_parts.append("미국 증시: 데이터 수집 실패 (Alpha Vantage API 키 확인 필요)")
+            formatted_parts.append("미국 증시: 데이터 수집 실패 (KIS API 키 확인 필요)")
         
         return '\n\n'.join(formatted_parts)
     

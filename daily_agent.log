@@ -117,3 +117,198 @@
 2025-08-27 15:33:26,481 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8483769264:AAFVAcTKeTm3e57L-JcrRddr6xjoCpZQJ2A/sendMessage "HTTP/1.1 200 OK"
 2025-08-27 15:33:26,483 - services.notification_service - INFO - 텔레그램 전송 완료: 8210057567
 2025-08-27 15:33:26,483 - main - INFO - 일일 보고서 생성 및 전송 완료
+2025-08-27 16:25:50,454 - services.stock_service - INFO - StockService 초기화 완료 (KIS API 전용)
+2025-08-27 16:25:50,455 - services.gemini_service - INFO - Gemini Service 초기화 완료
+2025-08-27 16:25:50,455 - services.notification_service - INFO - 이메일 알림 서비스가 활성화되었습니다.
+2025-08-27 16:25:51,142 - services.notification_service - INFO - 텔레그램 알림 서비스가 활성화되었습니다.
+2025-08-27 16:25:51,142 - main - INFO - Daily AI Agent 초기화 완료
+2025-08-27 16:25:51,142 - main - INFO - 일일 보고서 생성 시작
+2025-08-27 16:25:51,783 - services.stock_service - INFO - 한국 증시 데이터 수집 시작 (KIS API)
+2025-08-27 16:25:51,783 - services.stock_service - INFO - KOSPI 데이터 수집 중...
+2025-08-27 16:25:52,348 - services.stock_service - ERROR - KIS API 토큰 요청 실패: 403 Client Error: Forbidden for url: https://openapi.koreainvestment.com:9443/oauth2/tokenP
+2025-08-27 16:25:52,350 - services.stock_service - WARNING - KOSPI KIS API 실패 - 해당 지수 제외
+2025-08-27 16:25:52,350 - services.stock_service - INFO - KOSDAQ 데이터 수집 중...
+2025-08-27 16:25:52,795 - services.stock_service - ERROR - KIS API 토큰 요청 실패: 403 Client Error: Forbidden for url: https://openapi.koreainvestment.com:9443/oauth2/tokenP
+2025-08-27 16:25:52,796 - services.stock_service - WARNING - KOSDAQ KIS API 실패 - 해당 지수 제외
+2025-08-27 16:25:52,796 - services.stock_service - ERROR - 한국 증시 데이터를 전혀 수집하지 못했습니다.
+2025-08-27 16:25:52,797 - services.stock_service - INFO - 미국 증시 데이터 수집 시작 (Alpha Vantage)
+2025-08-27 16:25:52,797 - services.stock_service - INFO - S&P 500 데이터 수집 중...
+2025-08-27 16:25:53,725 - services.stock_service - INFO - S&P 500 Alpha Vantage 데이터 수집 성공: $645.16 (+0.42%)
+2025-08-27 16:25:53,726 - services.stock_service - INFO - S&P 500 수집 성공: $645.16 (+0.42%)
+2025-08-27 16:25:53,726 - services.stock_service - INFO - NASDAQ 데이터 수집 중...
+2025-08-27 16:25:54,440 - services.stock_service - INFO - NASDAQ Alpha Vantage 데이터 수집 성공: $572.61 (+0.40%)
+2025-08-27 16:25:54,441 - services.stock_service - INFO - NASDAQ 수집 성공: $572.61 (+0.40%)
+2025-08-27 16:25:54,442 - services.stock_service - INFO - Dow Jones 데이터 수집 중...
+2025-08-27 16:25:55,465 - services.stock_service - INFO - Dow Jones Alpha Vantage 데이터 수집 성공: $454.49 (+0.31%)
+2025-08-27 16:25:55,466 - services.stock_service - INFO - Dow Jones 수집 성공: $454.49 (+0.31%)
+2025-08-27 16:25:55,466 - services.stock_service - INFO - 미국 증시 데이터 수집 완료: 3개 지수
+2025-08-27 16:25:55,466 - services.gemini_service - INFO - Gemini AI로 텍스트 생성 시작
+2025-08-27 16:26:01,498 - services.gemini_service - INFO - 텍스트 생성 완료
+2025-08-27 16:26:01,500 - main - INFO - 보고서 저장 완료: reports/daily_report_20250827_162601.txt
+2025-08-27 16:26:01,502 - services.notification_service - INFO - 콘솔 출력 완료
+2025-08-27 16:26:04,758 - services.notification_service - ERROR - 이메일 전송 중 오류: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 98e67ed59e1d1-327458aec02sm1980296a91.3 - gsmtp')
+2025-08-27 16:26:05,681 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8483769264:AAFVAcTKeTm3e57L-JcrRddr6xjoCpZQJ2A/sendMessage "HTTP/1.1 400 Bad Request"
+2025-08-27 16:26:05,682 - services.notification_service - ERROR - 텔레그램 전송 중 오류: Can't parse entities: can't find end of the entity starting at byte offset 2299
+2025-08-27 16:26:05,682 - main - INFO - 일일 보고서 생성 및 전송 완료
+2025-08-27 16:30:29,485 - services.stock_service - INFO - StockService 초기화 완료 (KIS API 전용)
+2025-08-27 16:30:29,485 - services.gemini_service - INFO - Gemini Service 초기화 완료
+2025-08-27 16:30:29,485 - services.notification_service - INFO - 이메일 알림 서비스가 활성화되었습니다.
+2025-08-27 16:30:30,156 - services.notification_service - INFO - 텔레그램 알림 서비스가 활성화되었습니다.
+2025-08-27 16:30:30,156 - __main__ - INFO - Daily AI Agent 초기화 완료
+2025-08-27 16:30:30,156 - __main__ - INFO - 스케줄러 시작 - 매일 오전 6시에 보고서 생성
+2025-08-27 16:30:30,156 - __main__ - INFO - 일일 보고서 생성 시작
+2025-08-27 16:30:30,800 - services.stock_service - INFO - 한국 증시 데이터 수집 시작 (KIS API)
+2025-08-27 16:30:30,800 - services.stock_service - INFO - KOSPI 데이터 수집 중...
+2025-08-27 16:30:31,254 - services.stock_service - ERROR - KIS API 토큰 요청 실패: 403 Client Error: Forbidden for url: https://openapi.koreainvestment.com:9443/oauth2/tokenP
+2025-08-27 16:30:31,255 - services.stock_service - WARNING - KOSPI KIS API 실패 - 해당 지수 제외
+2025-08-27 16:30:31,255 - services.stock_service - INFO - KOSDAQ 데이터 수집 중...
+2025-08-27 16:30:31,727 - services.stock_service - ERROR - KIS API 토큰 요청 실패: 403 Client Error: Forbidden for url: https://openapi.koreainvestment.com:9443/oauth2/tokenP
+2025-08-27 16:30:31,729 - services.stock_service - WARNING - KOSDAQ KIS API 실패 - 해당 지수 제외
+2025-08-27 16:30:31,729 - services.stock_service - ERROR - 한국 증시 데이터를 전혀 수집하지 못했습니다.
+2025-08-27 16:30:31,729 - services.stock_service - INFO - 미국 증시 데이터 수집 시작 (Alpha Vantage)
+2025-08-27 16:30:31,729 - services.stock_service - INFO - S&P 500 데이터 수집 중...
+2025-08-27 16:30:32,449 - services.stock_service - INFO - S&P 500 Alpha Vantage 데이터 수집 성공: $645.16 (+0.42%)
+2025-08-27 16:30:32,451 - services.stock_service - INFO - S&P 500 수집 성공: $645.16 (+0.42%)
+2025-08-27 16:30:32,451 - services.stock_service - INFO - NASDAQ 데이터 수집 중...
+2025-08-27 16:30:33,469 - services.stock_service - INFO - NASDAQ Alpha Vantage 데이터 수집 성공: $572.61 (+0.40%)
+2025-08-27 16:30:33,470 - services.stock_service - INFO - NASDAQ 수집 성공: $572.61 (+0.40%)
+2025-08-27 16:30:33,471 - services.stock_service - INFO - Dow Jones 데이터 수집 중...
+2025-08-27 16:30:34,507 - services.stock_service - INFO - Dow Jones Alpha Vantage 데이터 수집 성공: $454.49 (+0.31%)
+2025-08-27 16:30:34,508 - services.stock_service - INFO - Dow Jones 수집 성공: $454.49 (+0.31%)
+2025-08-27 16:30:34,508 - services.stock_service - INFO - 미국 증시 데이터 수집 완료: 3개 지수
+2025-08-27 16:30:34,509 - services.gemini_service - INFO - Gemini AI로 텍스트 생성 시작
+2025-08-27 16:30:40,749 - services.gemini_service - INFO - 텍스트 생성 완료
+2025-08-27 16:30:40,751 - __main__ - INFO - 보고서 저장 완료: reports/daily_report_20250827_163040.txt
+2025-08-27 16:30:40,753 - services.notification_service - INFO - 콘솔 출력 완료
+2025-08-27 16:30:43,139 - services.notification_service - ERROR - 이메일 전송 중 오류: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 98e67ed59e1d1-3276f8a3fe4sm1242266a91.16 - gsmtp')
+2025-08-27 16:30:44,212 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8483769264:AAFVAcTKeTm3e57L-JcrRddr6xjoCpZQJ2A/sendMessage "HTTP/1.1 200 OK"
+2025-08-27 16:30:44,213 - services.notification_service - INFO - 텔레그램 전송 완료: -4871810712
+2025-08-27 16:30:44,214 - __main__ - INFO - 일일 보고서 생성 및 전송 완료
+2025-08-27 16:38:07,930 - services.stock_service - INFO - StockService 초기화 완료 (KIS API 전용)
+2025-08-27 16:38:07,931 - services.gemini_service - INFO - Gemini Service 초기화 완료
+2025-08-27 16:38:07,931 - services.notification_service - INFO - 이메일 알림 서비스가 활성화되었습니다.
+2025-08-27 16:38:08,617 - services.notification_service - INFO - 텔레그램 알림 서비스가 활성화되었습니다.
+2025-08-27 16:38:08,617 - __main__ - INFO - Daily AI Agent 초기화 완료
+2025-08-27 16:38:08,618 - __main__ - INFO - 스케줄러 시작 - 매일 오전 6시에 보고서 생성
+2025-08-27 16:38:08,618 - __main__ - INFO - 일일 보고서 생성 시작
+2025-08-27 16:38:09,254 - services.stock_service - INFO - 한국 증시 데이터 수집 시작 (KIS API)
+2025-08-27 16:38:09,254 - services.stock_service - INFO - KOSPI 데이터 수집 중...
+2025-08-27 16:38:09,735 - services.stock_service - ERROR - KIS API 토큰 요청 실패: 403 Client Error: Forbidden for url: https://openapi.koreainvestment.com:9443/oauth2/tokenP
+2025-08-27 16:38:09,736 - services.stock_service - WARNING - KOSPI KIS API 실패 - 해당 지수 제외
+2025-08-27 16:38:09,736 - services.stock_service - INFO - KOSDAQ 데이터 수집 중...
+2025-08-27 16:38:10,170 - services.stock_service - ERROR - KIS API 토큰 요청 실패: 403 Client Error: Forbidden for url: https://openapi.koreainvestment.com:9443/oauth2/tokenP
+2025-08-27 16:38:10,171 - services.stock_service - WARNING - KOSDAQ KIS API 실패 - 해당 지수 제외
+2025-08-27 16:38:10,171 - services.stock_service - ERROR - 한국 증시 데이터를 전혀 수집하지 못했습니다.
+2025-08-27 16:38:10,171 - services.stock_service - INFO - 미국 증시 데이터 수집 시작 (Alpha Vantage)
+2025-08-27 16:38:10,172 - services.stock_service - INFO - S&P 500 데이터 수집 중...
+2025-08-27 16:38:11,018 - services.stock_service - INFO - S&P 500 Alpha Vantage 데이터 수집 성공: $645.16 (+0.42%)
+2025-08-27 16:38:11,019 - services.stock_service - INFO - S&P 500 수집 성공: $645.16 (+0.42%)
+2025-08-27 16:38:11,020 - services.stock_service - INFO - NASDAQ 데이터 수집 중...
+2025-08-27 16:38:11,932 - services.stock_service - INFO - NASDAQ Alpha Vantage 데이터 수집 성공: $572.61 (+0.40%)
+2025-08-27 16:38:11,933 - services.stock_service - INFO - NASDAQ 수집 성공: $572.61 (+0.40%)
+2025-08-27 16:38:11,933 - services.stock_service - INFO - Dow Jones 데이터 수집 중...
+2025-08-27 16:38:12,640 - services.stock_service - INFO - Dow Jones Alpha Vantage 데이터 수집 성공: $454.49 (+0.31%)
+2025-08-27 16:38:12,641 - services.stock_service - INFO - Dow Jones 수집 성공: $454.49 (+0.31%)
+2025-08-27 16:38:12,641 - services.stock_service - INFO - 미국 증시 데이터 수집 완료: 3개 지수
+2025-08-27 16:38:12,641 - services.gemini_service - INFO - Gemini AI로 텍스트 생성 시작
+2025-08-27 16:38:18,374 - services.gemini_service - INFO - 텍스트 생성 완료
+2025-08-27 16:38:18,375 - __main__ - INFO - 보고서 저장 완료: reports/daily_report_20250827_163818.txt
+2025-08-27 16:38:18,377 - services.notification_service - INFO - 콘솔 출력 완료
+2025-08-27 16:38:21,573 - services.notification_service - ERROR - 이메일 전송 중 오류: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 41be03b00d2f7-b49cbbbbf5asm10820746a12.50 - gsmtp')
+2025-08-27 16:38:22,621 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8454935713:AAEftDhekuPM6FhVIira4VVIy12ZGnnbDEg/sendMessage "HTTP/1.1 200 OK"
+2025-08-27 16:38:22,622 - services.notification_service - INFO - 텔레그램 전송 완료: 8210057567
+2025-08-27 16:38:22,622 - __main__ - INFO - 일일 보고서 생성 및 전송 완료
+2025-08-27 16:41:48,566 - services.stock_service - INFO - StockService 초기화 완료 (KIS API 전용)
+2025-08-27 16:41:48,566 - services.gemini_service - INFO - Gemini Service 초기화 완료
+2025-08-27 16:41:48,566 - services.notification_service - INFO - 이메일 알림 서비스가 활성화되었습니다.
+2025-08-27 16:41:49,243 - services.notification_service - INFO - 텔레그램 알림 서비스가 활성화되었습니다.
+2025-08-27 16:41:49,243 - __main__ - INFO - Daily AI Agent 초기화 완료
+2025-08-27 16:41:49,243 - __main__ - INFO - 스케줄러 시작 - 매일 오전 6시에 보고서 생성
+2025-08-27 16:41:49,243 - __main__ - INFO - 일일 보고서 생성 시작
+2025-08-27 16:41:49,835 - services.stock_service - INFO - 한국 증시 데이터 수집 시작 (KIS API)
+2025-08-27 16:41:49,835 - services.stock_service - INFO - KOSPI 데이터 수집 중...
+2025-08-27 16:41:50,255 - services.stock_service - ERROR - KIS API 토큰 요청 실패: 403 Client Error: Forbidden for url: https://openapi.koreainvestment.com:9443/oauth2/tokenP
+2025-08-27 16:41:50,256 - services.stock_service - WARNING - KOSPI KIS API 실패 - 해당 지수 제외
+2025-08-27 16:41:50,256 - services.stock_service - INFO - KOSDAQ 데이터 수집 중...
+2025-08-27 16:41:50,711 - services.stock_service - ERROR - KIS API 토큰 요청 실패: 403 Client Error: Forbidden for url: https://openapi.koreainvestment.com:9443/oauth2/tokenP
+2025-08-27 16:41:50,712 - services.stock_service - WARNING - KOSDAQ KIS API 실패 - 해당 지수 제외
+2025-08-27 16:41:50,712 - services.stock_service - ERROR - 한국 증시 데이터를 전혀 수집하지 못했습니다.
+2025-08-27 16:41:50,713 - services.stock_service - INFO - 미국 증시 데이터 수집 시작 (Alpha Vantage)
+2025-08-27 16:41:50,713 - services.stock_service - INFO - S&P 500 데이터 수집 중...
+2025-08-27 16:41:51,724 - services.stock_service - ERROR - Alpha Vantage SPY 응답 형식 오류: {'Information': 'We have detected your API key as your_alpha_vantage_api_key_here and our standard API rate limit is 25 requests per day. Please subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to instantly remove all daily rate limits.'}
+2025-08-27 16:41:51,725 - services.stock_service - WARNING - S&P 500 Alpha Vantage 실패 - 해당 지수 제외
+2025-08-27 16:41:51,725 - services.stock_service - INFO - NASDAQ 데이터 수집 중...
+2025-08-27 16:41:52,723 - services.stock_service - ERROR - Alpha Vantage QQQ 응답 형식 오류: {'Information': 'We have detected your API key as your_alpha_vantage_api_key_here and our standard API rate limit is 25 requests per day. Please subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to instantly remove all daily rate limits.'}
+2025-08-27 16:41:52,724 - services.stock_service - WARNING - NASDAQ Alpha Vantage 실패 - 해당 지수 제외
+2025-08-27 16:41:52,725 - services.stock_service - INFO - Dow Jones 데이터 수집 중...
+2025-08-27 16:41:53,624 - services.stock_service - ERROR - Alpha Vantage DIA 응답 형식 오류: {'Information': 'We have detected your API key as your_alpha_vantage_api_key_here and our standard API rate limit is 25 requests per day. Please subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to instantly remove all daily rate limits.'}
+2025-08-27 16:41:53,626 - services.stock_service - WARNING - Dow Jones Alpha Vantage 실패 - 해당 지수 제외
+2025-08-27 16:41:53,626 - services.stock_service - ERROR - 미국 증시 데이터를 전혀 수집하지 못했습니다.
+2025-08-27 16:41:53,626 - services.gemini_service - INFO - Gemini AI로 텍스트 생성 시작
+2025-08-27 16:42:00,140 - services.gemini_service - INFO - 텍스트 생성 완료
+2025-08-27 16:42:00,141 - __main__ - INFO - 보고서 저장 완료: reports/daily_report_20250827_164200.txt
+2025-08-27 16:42:00,143 - services.notification_service - INFO - 콘솔 출력 완료
+2025-08-27 16:42:02,792 - services.notification_service - ERROR - 이메일 전송 중 오류: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d9443c01a7336-24668779feesm114448755ad.34 - gsmtp')
+2025-08-27 16:42:03,844 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8454935713:AAEftDhekuPM6FhVIira4VVIy12ZGnnbDEg/sendMessage "HTTP/1.1 200 OK"
+2025-08-27 16:42:03,845 - services.notification_service - INFO - 텔레그램 전송 완료: 8210057567
+2025-08-27 16:42:03,846 - __main__ - INFO - 일일 보고서 생성 및 전송 완료
+2025-08-27 16:44:14,447 - services.stock_service - INFO - StockService 초기화 완료 (KIS API 전용)
+2025-08-27 16:44:14,447 - services.gemini_service - INFO - Gemini Service 초기화 완료
+2025-08-27 16:44:14,447 - services.notification_service - INFO - 이메일 알림 서비스가 활성화되었습니다.
+2025-08-27 16:44:15,122 - services.notification_service - INFO - 텔레그램 알림 서비스가 활성화되었습니다.
+2025-08-27 16:44:15,122 - __main__ - INFO - Daily AI Agent 초기화 완료
+2025-08-27 16:44:15,123 - __main__ - INFO - 스케줄러 시작 - 매일 오전 6시에 보고서 생성
+2025-08-27 16:45:48,128 - services.stock_service - INFO - StockService 초기화 완료 (KIS API 전용)
+2025-08-27 16:45:48,129 - services.gemini_service - INFO - Gemini Service 초기화 완료
+2025-08-27 16:45:48,129 - services.notification_service - INFO - 이메일 알림 서비스가 활성화되었습니다.
+2025-08-27 16:45:48,796 - services.notification_service - INFO - 텔레그램 알림 서비스가 활성화되었습니다.
+2025-08-27 16:45:48,796 - __main__ - INFO - Daily AI Agent 초기화 완료
+2025-08-27 16:45:48,796 - __main__ - INFO - 스케줄러 시작 - 매일 오전 6시에 보고서 생성
+2025-08-27 16:45:48,797 - __main__ - INFO - 일일 보고서 생성 시작
+2025-08-27 16:45:49,412 - services.stock_service - INFO - 한국 증시 데이터 수집 시작 (KIS API)
+2025-08-27 16:45:49,412 - services.stock_service - INFO - KOSPI 데이터 수집 중...
+2025-08-27 16:45:49,870 - services.stock_service - ERROR - KIS API 토큰 요청 실패: 403 Client Error: Forbidden for url: https://openapi.koreainvestment.com:9443/oauth2/tokenP
+2025-08-27 16:45:49,871 - services.stock_service - WARNING - KOSPI KIS API 실패 - 해당 지수 제외
+2025-08-27 16:45:49,871 - services.stock_service - INFO - KOSDAQ 데이터 수집 중...
+2025-08-27 16:45:50,309 - services.stock_service - ERROR - KIS API 토큰 요청 실패: 403 Client Error: Forbidden for url: https://openapi.koreainvestment.com:9443/oauth2/tokenP
+2025-08-27 16:45:50,310 - services.stock_service - WARNING - KOSDAQ KIS API 실패 - 해당 지수 제외
+2025-08-27 16:45:50,310 - services.stock_service - ERROR - 한국 증시 데이터를 전혀 수집하지 못했습니다.
+2025-08-27 16:45:50,310 - services.stock_service - INFO - 미국 증시 데이터 수집 시작 (Alpha Vantage)
+2025-08-27 16:45:50,311 - services.stock_service - INFO - S&P 500 데이터 수집 중...
+2025-08-27 16:45:50,980 - services.stock_service - ERROR - Alpha Vantage SPY 응답 형식 오류: {'Information': 'We have detected your API key as RB9H5X97N4Q3PN5Z and our standard API rate limit is 25 requests per day. Please subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to instantly remove all daily rate limits.'}
+2025-08-27 16:45:50,981 - services.stock_service - WARNING - S&P 500 Alpha Vantage 실패 - 해당 지수 제외
+2025-08-27 16:45:50,981 - services.stock_service - INFO - NASDAQ 데이터 수집 중...
+2025-08-27 16:45:51,940 - services.stock_service - ERROR - Alpha Vantage QQQ 응답 형식 오류: {'Information': 'We have detected your API key as RB9H5X97N4Q3PN5Z and our standard API rate limit is 25 requests per day. Please subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to instantly remove all daily rate limits.'}
+2025-08-27 16:45:51,942 - services.stock_service - WARNING - NASDAQ Alpha Vantage 실패 - 해당 지수 제외
+2025-08-27 16:45:51,942 - services.stock_service - INFO - Dow Jones 데이터 수집 중...
+2025-08-27 16:45:52,613 - services.stock_service - ERROR - Alpha Vantage DIA 응답 형식 오류: {'Information': 'We have detected your API key as RB9H5X97N4Q3PN5Z and our standard API rate limit is 25 requests per day. Please subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to instantly remove all daily rate limits.'}
+2025-08-27 16:45:52,614 - services.stock_service - WARNING - Dow Jones Alpha Vantage 실패 - 해당 지수 제외
+2025-08-27 16:45:52,615 - services.stock_service - ERROR - 미국 증시 데이터를 전혀 수집하지 못했습니다.
+2025-08-27 16:45:52,615 - services.gemini_service - INFO - Gemini AI로 텍스트 생성 시작
+2025-08-27 16:47:35,730 - services.stock_service - INFO - StockService 초기화 완료 (KIS API 전용)
+2025-08-27 16:47:35,730 - services.gemini_service - INFO - Gemini Service 초기화 완료
+2025-08-27 16:47:35,730 - services.notification_service - INFO - 이메일 알림 서비스가 활성화되었습니다.
+2025-08-27 16:47:36,400 - services.notification_service - INFO - 텔레그램 알림 서비스가 활성화되었습니다.
+2025-08-27 16:47:36,400 - __main__ - INFO - Daily AI Agent 초기화 완료
+2025-08-27 16:47:36,400 - __main__ - INFO - 스케줄러 시작 - 매일 오전 6시에 보고서 생성
+2025-08-27 16:47:36,400 - __main__ - INFO - 일일 보고서 생성 시작
+2025-08-27 16:47:37,055 - services.stock_service - INFO - 한국 증시 데이터 수집 시작 (KIS API)
+2025-08-27 16:47:37,055 - services.stock_service - INFO - KOSPI 데이터 수집 중...
+2025-08-27 16:47:37,489 - services.stock_service - ERROR - KIS API 토큰 요청 실패: 403 Client Error: Forbidden for url: https://openapi.koreainvestment.com:9443/oauth2/tokenP
+2025-08-27 16:47:37,490 - services.stock_service - WARNING - KOSPI KIS API 실패 - 해당 지수 제외
+2025-08-27 16:47:37,490 - services.stock_service - INFO - KOSDAQ 데이터 수집 중...
+2025-08-27 16:47:37,995 - services.stock_service - ERROR - KIS API 토큰 요청 실패: 403 Client Error: Forbidden for url: https://openapi.koreainvestment.com:9443/oauth2/tokenP
+2025-08-27 16:47:37,997 - services.stock_service - WARNING - KOSDAQ KIS API 실패 - 해당 지수 제외
+2025-08-27 16:47:37,997 - services.stock_service - ERROR - 한국 증시 데이터를 전혀 수집하지 못했습니다.
+2025-08-27 16:47:37,997 - services.stock_service - INFO - 미국 증시 데이터 수집 시작 (Alpha Vantage)
+2025-08-27 16:47:37,997 - services.stock_service - INFO - S&P 500 데이터 수집 중...
+2025-08-27 16:47:38,899 - services.stock_service - ERROR - Alpha Vantage SPY 응답 형식 오류: {'Information': 'We have detected your API key as RB9H5X97N4Q3PN5Z and our standard API rate limit is 25 requests per day. Please subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to instantly remove all daily rate limits.'}
+2025-08-27 16:47:38,901 - services.stock_service - WARNING - S&P 500 Alpha Vantage 실패 - 해당 지수 제외
+2025-08-27 16:47:38,901 - services.stock_service - INFO - NASDAQ 데이터 수집 중...
+2025-08-27 16:47:40,205 - services.stock_service - ERROR - Alpha Vantage QQQ 응답 형식 오류: {'Information': 'We have detected your API key as RB9H5X97N4Q3PN5Z and our standard API rate limit is 25 requests per day. Please subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to instantly remove all daily rate limits.'}
+2025-08-27 16:47:40,206 - services.stock_service - WARNING - NASDAQ Alpha Vantage 실패 - 해당 지수 제외
+2025-08-27 16:47:40,206 - services.stock_service - INFO - Dow Jones 데이터 수집 중...
+2025-08-27 16:47:41,539 - services.stock_service - ERROR - Alpha Vantage DIA 응답 형식 오류: {'Information': 'We have detected your API key as RB9H5X97N4Q3PN5Z and our standard API rate limit is 25 requests per day. Please subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to instantly remove all daily rate limits.'}
+2025-08-27 16:47:41,541 - services.stock_service - WARNING - Dow Jones Alpha Vantage 실패 - 해당 지수 제외
+2025-08-27 16:47:41,541 - services.stock_service - ERROR - 미국 증시 데이터를 전혀 수집하지 못했습니다.
+2025-08-27 16:47:41,541 - services.gemini_service - INFO - Gemini AI로 텍스트 생성 시작

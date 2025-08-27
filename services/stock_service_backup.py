@@ -1,6 +1,7 @@
 """
 주식 시장 데이터를 수집하는 서비스
-한국투자증권(KIS) API를 사용하여 한국 및 해외 증시 데이터 수집
+한국투자증권(KIS) API를 사용하여 한국 증시 데이터 수집
+Alpha Vantage API를 사용하여 미국 증시 데이터 수집
 """
 
 import logging
@@ -11,18 +12,22 @@ from typing import Dict, List, Optional, Any
 
 
 class StockService:
-    """증시 정보를 수집하는 서비스 클래스 (KIS API 통합)"""
+    """증시 정보를 수집하는 서비스 클래스 (KIS API 전용)"""
     
     def __init__(self):
         self.logger = logging.getLogger(__name__)
         
-        # KIS API 설정 (한국 및 해외 증시용)
+        # Alpha Vantage API 설정 (미국 증시용)
+        self.alpha_vantage_key = os.getenv('ALPHA_VANTAGE_API_KEY')
+        self.av_base_url = "https://www.alphavantage.co/query"
+        
+        # KIS API 설정 (한국 증시용)
         self.kis_app_key = os.getenv('KIS_APP_KEY')
         self.kis_app_secret = os.getenv('KIS_APP_SECRET')
         self.kis_base_url = "https://openapi.koreainvestment.com:9443"
         self.kis_access_token = None
         
-        self.logger.info("StockService 초기화 완료 (KIS API 통합)")
+        self.logger.info("StockService 초기화 완료 (KIS API 전용)")
     
     def _get_kis_access_token(self) -> Optional[str]:
         """KIS API 액세스 토큰 발급"""
@@ -119,8 +124,7 @@ class StockService:
                     'volume': 0,  # 지수는 거래량 없음
                     'high': round(current_price, 2),  # 임시값
                     'low': round(current_price, 2),   # 임시값
-                    'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                    'data_source': 'KIS API'
+                    'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                 }
                 
                 # 상승/하락 상태 추가
@@ -153,90 +157,76 @@ class StockService:
             self.logger.error(f"KIS API {index_name} 데이터 수집 중 오류: {e}")
             return None
     
-    def _get_kis_overseas_data(self, symbol: str, index_name: str, market: str = 'NASD') -> Optional[Dict]:
-        """KIS API로 해외 증시 데이터 수집"""
-        if not self.kis_access_token:
-            token = self._get_kis_access_token()
-            if not token:
-                return None
+    def _get_alpha_vantage_data(self, symbol: str, index_name: str) -> Optional[Dict]:
+        """Alpha Vantage API로 미국 증시 데이터 수집"""
+        if not self.alpha_vantage_key:
+            self.logger.warning("Alpha Vantage API 키가 설정되지 않았습니다.")
+            return None
         
         try:
-            headers = {
-                'Content-Type': 'application/json; charset=utf-8',
-                'authorization': f'Bearer {self.kis_access_token}',
-                'appkey': self.kis_app_key,
-                'appsecret': self.kis_app_secret,
-                'tr_id': 'HHDFS00000300'  # 해외증시 현재가 조회
-            }
-            
             params = {
-                'AUTH': '',
-                'EXCD': market,  # 거래소코드 (NASD: 나스닥, NYSE: 뉴욕증권거래소)
-                'SYMB': symbol   # 종목코드
+                'function': 'GLOBAL_QUOTE',
+                'symbol': symbol,
+                'apikey': self.alpha_vantage_key
             }
             
-            url = f"{self.kis_base_url}/uapi/overseas-price/v1/quotations/price"
-            response = requests.get(url, headers=headers, params=params, timeout=10)
+            response = requests.get(self.av_base_url, params=params, timeout=15)
             response.raise_for_status()
             
             data = response.json()
             
-            if data.get('rt_cd') == '0':  # 성공
-                output = data.get('output', {})
+            if 'Global Quote' in data:
+                quote = data['Global Quote']
                 
-                current_price = float(output.get('last', 0))
-                prev_close = float(output.get('base', 0))
+                current_price = float(quote.get('05. price', 0))
+                previous_close = float(quote.get('08. previous close', 0))
+                change = float(quote.get('09. change', 0))
+                change_percent = float(quote.get('10. change percent', '0%').replace('%', ''))
                 
-                if prev_close > 0:
-                    change = current_price - prev_close
-                    change_percent = (change / prev_close) * 100
-                    
-                    data_dict = {
-                        'name': index_name,
-                        'ticker': symbol,
-                        'current_price': round(current_price, 2),
-                        'previous_close': round(prev_close, 2),
-                        'change': round(change, 2),
-                        'change_percent': round(change_percent, 2),
-                        'volume': int(output.get('tvol', 0)),
-                        'high': round(float(output.get('high', 0)), 2),
-                        'low': round(float(output.get('low', 0)), 2),
-                        'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                        'data_source': 'KIS API'
-                    }
-                    
-                    # 상승/하락 상태 추가
-                    if change > 0:
-                        data_dict['trend'] = '상승'
-                        data_dict['trend_emoji'] = '📈'
-                    elif change < 0:
-                        data_dict['trend'] = '하락'
-                        data_dict['trend_emoji'] = '📉'
-                    else:
-                        data_dict['trend'] = '보합'
-                        data_dict['trend_emoji'] = '➡️'
-                    
-                    self.logger.info(f"{index_name} KIS API 해외 데이터 수집 성공: ${current_price} ({change_percent:+.2f}%)")
-                    return data_dict
-            
-            self.logger.error(f"KIS API 해외 증시 조회 실패 ({symbol}): {data}")
-            return None
-            
+                data_dict = {
+                    'name': index_name,
+                    'ticker': symbol,
+                    'current_price': round(current_price, 2),
+                    'previous_close': round(previous_close, 2),
+                    'change': round(change, 2),
+                    'change_percent': round(change_percent, 2),
+                    'volume': int(quote.get('06. volume', 0)),
+                    'high': round(float(quote.get('03. high', 0)), 2),
+                    'low': round(float(quote.get('04. low', 0)), 2),
+                    'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                }
+                
+                # 상승/하락 상태 추가
+                if change > 0:
+                    data_dict['trend'] = '상승'
+                    data_dict['trend_emoji'] = '📈'
+                elif change < 0:
+                    data_dict['trend'] = '하락'
+                    data_dict['trend_emoji'] = '📉'
+                else:
+                    data_dict['trend'] = '보합'
+                    data_dict['trend_emoji'] = '➡️'
+                
+                self.logger.info(f"{index_name} Alpha Vantage 데이터 수집 성공: ${current_price} ({change_percent:+.2f}%)")
+                return data_dict
+            else:
+                self.logger.error(f"Alpha Vantage {symbol} 응답 형식 오류: {data}")
+                return None
+                
         except requests.exceptions.RequestException as e:
-            self.logger.error(f"KIS API 해외 증시 요청 실패 ({symbol}): {e}")
-            # 토큰 만료 시 재발급 시도
-            if hasattr(e, 'response') and e.response and e.response.status_code == 401:
-                self.kis_access_token = None
+            self.logger.error(f"Alpha Vantage {symbol} 요청 실패: {e}")
             return None
         except (KeyError, ValueError, TypeError) as e:
-            self.logger.error(f"KIS API 해외 증시 파싱 오류 ({symbol}): {e}")
+            self.logger.error(f"Alpha Vantage {symbol} 데이터 파싱 오류: {e}")
             return None
         except Exception as e:
-            self.logger.error(f"KIS API 해외 증시 수집 중 오류 ({symbol}): {e}")
+            self.logger.error(f"Alpha Vantage {symbol} 데이터 수집 중 오류: {e}")
             return None
     
+
+    
     def get_korean_market_data(self) -> List[Dict]:
-        """한국 증시 데이터 수집 (KIS API) - 실제 데이터만 반환"""
+        """한국 증시 데이터 수집 (KIS API 전용) - 실제 데이터만 반환"""
         self.logger.info("한국 증시 데이터 수집 시작 (KIS API)")
         
         if not self.kis_app_key or not self.kis_app_secret:
@@ -266,18 +256,17 @@ class StockService:
         return results
     
     def get_us_market_data(self) -> List[Dict]:
-        """미국 증시 데이터 수집 (KIS API) - 실제 데이터만 반환"""
-        self.logger.info("미국 증시 데이터 수집 시작 (KIS API)")
+        """미국 증시 데이터 수집 (Alpha Vantage API) - 실제 데이터만 반환"""
+        self.logger.info("미국 증시 데이터 수집 시작 (Alpha Vantage)")
         
-        if not self.kis_app_key or not self.kis_app_secret:
-            self.logger.error("KIS API 키가 설정되지 않았습니다. 미국 증시 데이터를 수집할 수 없습니다.")
+        if not self.alpha_vantage_key:
+            self.logger.error("Alpha Vantage API 키가 설정되지 않았습니다. 미국 증시 데이터를 수집할 수 없습니다.")
             return []
         
-        # 미국 주요 지수 (KIS API 종목 코드)
         us_indices = {
-            'S&P 500': '.SPX',      # S&P 500 지수
-            'NASDAQ': '.IXIC',      # NASDAQ 종합지수  
-            'Dow Jones': '.DJI'     # 다우존스 산업평균지수
+            'S&P 500': 'SPY',
+            'NASDAQ': 'QQQ', 
+            'Dow Jones': 'DIA'
         }
         
         results = []
@@ -285,14 +274,14 @@ class StockService:
         for index_name, symbol in us_indices.items():
             self.logger.info(f"{index_name} 데이터 수집 중...")
             
-            # KIS API로 해외 증시 데이터 수집
-            data = self._get_kis_overseas_data(symbol, index_name, 'NASD')  # NASDAQ 시장
+            # Alpha Vantage API로 시도 - 실패하면 그냥 제외
+            data = self._get_alpha_vantage_data(symbol, index_name)
             
             if data:
                 results.append(data)
                 self.logger.info(f"{index_name} 수집 성공: ${data['current_price']} ({data['change_percent']:+.2f}%)")
             else:
-                self.logger.warning(f"{index_name} KIS API 실패 - 해당 지수 제외")
+                self.logger.warning(f"{index_name} Alpha Vantage 실패 - 해당 지수 제외")
         
         if results:
             self.logger.info(f"미국 증시 데이터 수집 완료: {len(results)}개 지수")
@@ -321,12 +310,12 @@ class StockService:
     def get_status(self) -> Dict[str, Any]:
         """StockService 상태 확인"""
         status = {
-            'service_name': 'StockService (KIS API 통합)',
+            'service_name': 'StockService (KIS API 전용)',
             'kis_configured': bool(self.kis_app_key and self.kis_app_secret),
+            'alpha_vantage_configured': bool(self.alpha_vantage_key),
             'kis_token_valid': bool(self.kis_access_token),
             'supported_korean_indices': ['KOSPI', 'KOSDAQ'],
-            'supported_us_indices': ['S&P 500', 'NASDAQ', 'Dow Jones'],
-            'data_source': 'KIS API Only'
+            'supported_us_indices': ['S&P 500', 'NASDAQ', 'Dow Jones']
         }
         
         return status
